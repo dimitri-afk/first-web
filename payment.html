@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body class="">
+
+
+<a style="margin-left: 180px; margin-top: 15px;" class="btn btn-dark link-opacity-75-hover" href="product.html">BACK</a>
+
+<p style="opacity: -1;" class="fs-6">hys</p>
+
+
+<b class="fs-1" style="margin-left: 10px;">WELCOME IN PAYMENT PAGE</b>
+
+<div id="warning" style="margin-top: 30px; text-align: center; opacity: 5; transition: opacity 3s ease;">
+  <i  class="fs-4 bg-danger-subtle">Fill in each column to make your transaction successful.</i>
+</div>
+
+<script>
+  window.onload = function() {
+    const warning = document.getElementById("warning");
+
+    // tampilkan dulu
+    warning.style.opacity = "1";
+
+    // setelah 3 detik, mulai memudar
+    setTimeout(() => {
+      warning.style.opacity = "0";
+    }, 5000);
+
+    // setelah fade selesai (1 detik), sembunyikan elemen
+    setTimeout(() => {
+      warning.style.display = "none";
+    }, 10000);
+  };
+
+</script>
+
+
+
+
+
+<p style="opacity: -1;" class="fs-1">hys</p>
+
+
+
+ <div class="">
+<div class="input-group mb-3">
+  <input type="text" class="form-control" placeholder="name" aria-label="name">
+  <span class="input-group-text">~</span>
+  <input type="text" class="form-control" placeholder="address" aria-label="address">
+</div>
+
+<p style="opacity: -1;" class="fs-1">hys</p>
+
+<div class="input-group input-group-sm mb-3">
+  <span class="input-group-text" id="inputGroup-sizing-sm">product</span>
+  <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm">
+</div>
+
+<p style="opacity: -1;" class="fs-1">hys</p>
+
+<div class="input-group mb-3">
+  <span class="input-group-text">price $</span>
+  <input type="text" class="form-control" aria-label="Dollar amount (with dot and two decimal places)" readonly >
+</div>
+
+<p style="opacity: -1;" class="fs-1">hys</p>
+
+
+<div class="bg-secondary-subtle">
+<p class="fs-5" style="text-align: center;"><b class="bg-danger-subtle">I have filled in and paid attention to what I have filled in the columns above consciously and alertly.</b> <hr> Check the box below and provide criticism and suggestions for our website so that it can develop even better.</p>
+
+
+<div class="input-group mb-3">
+  <div class="bg-primary input-group-text">
+    <input class="form-check-input mt-0" type="checkbox" value="" aria-label="Checkbox for following text input">
+  </div>
+  <p style="margin-left: 10px;">yes, i agree</p>
+</div>
+
+
+
+</div>
+
+
+
+
+
+<button class="btn btn-success fs-3 fw-bold text-dark" style="margin-left:190px; margin-top: 50px; padding:15px;" id="pay" type="submit"> PAY</button>
+
+<p id="response" class="fs-3 fw-bold"></p>
+
+<script>
+  document.getElementById("pay").addEventListener("click", function() {
+    const namaInput   = document.querySelector('[aria-label="name"]');
+    const alamatInput = document.querySelector('[aria-label="address"]');
+    const produkInput = document.querySelector('[aria-label="Sizing example input"]');
+    const hargaInput  = document.querySelector('[aria-label="Dollar amount (with dot and two decimal places)"]');
+    const checkboxInput = document.querySelector('[aria-label="Checkbox for following text input"]');
+
+    const responseText = document.getElementById("response");
+    // Reset border ke default
+    [namaInput, alamatInput, produkInput, hargaInput, checkboxInput].forEach(el => {
+      el.style.border = "1px solid #ced4da";
+    });
+
+    let kosong = [];
+
+    if (namaInput.value.trim() === "") {
+      kosong.push("Name");
+      namaInput.style.border = "2px solid red";
+    }
+    if (alamatInput.value.trim() === "") {
+      kosong.push("Address");
+      alamatInput.style.border = "2px solid red";
+    }
+    if (produkInput.value.trim() === "") {
+      kosong.push("Product");
+      produkInput.style.border = "2px solid red";
+    }
+    if (hargaInput.value.trim() === "" || hargaInput.value === "Product not found") {
+      kosong.push("Price");
+      hargaInput.style.border = "2px solid red";
+    }
+    if (!checkboxInput.checked) {
+      kosong.push("Checkbox");
+      checkboxInput.style.border = "2px solid red";
+    }
+
+    if (kosong.length === 0) {
+      responseText.textContent = "TRANSACTION SUCCESSFUL!";
+      responseText.style.color = "green";
+      responseText.style.textAlign = "center";
+
+      // Reset semua kolom setelah sukses
+      namaInput.value = "";
+      alamatInput.value = "";
+      produkInput.value = "";
+      hargaInput.value = "";
+      checkboxInput.checked = false;
+
+    } else {
+      responseText.textContent = "TRANSACTION FAILED, COLUMN NOT FILLED IN: " + kosong.join(", ");
+      responseText.style.color = "red";
+      responseText.style.marginTop = "40px"; 
+      responseText.style.textAlign = "center";
+    }
+
+    responseText.scrollIntoView({ behavior: "smooth" });
+  });
+
+
+</script>
+
+
+
+<script>
+  // Daftar produk dan harga
+  const daftarHarga = {
+    //US
+    "M1A1": "10.600.000",
+    "M109": "10.000.000",
+    "M3": "4.000.000",
+    "M113": "300.000",
+    "  ": "  ",
+    //RUSSIA
+    "T-90M": "7.000.000",
+    "T-80": "3.000.000",
+    "BMPT": "4.000.000",
+    "BMP-3": "3.600.000",
+    "BMP-2": "1.000.000",
+    "80A": "1.000.000",
+    "  ": "  ",
+    //GERMANY
+    "2A7": "16.000.000",
+    "PUMA": "32.000.000",
+    "BOXER": "9.500.000",
+    "  ": "  ",
+  };
+
+  const produkInput = document.querySelector('[aria-label="Sizing example input"]');
+  const hargaInput  = document.querySelector('[aria-label="Dollar amount (with dot and two decimal places)"]');
+
+  // Ketika user menekan Enter di kolom produk
+  produkInput.addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault(); // cegah submit form
+
+      const namaProduk = produkInput.value.trim();
+      if (daftarHarga[namaProduk]) {
+        hargaInput.value = daftarHarga[namaProduk]; // isi harga otomatis
+      } else {
+       hargaInput.value = "Product not found"; // tampilkan pesan salah
+      }
+
+      // pindah fokus ke kolom harga
+      hargaInput.focus();
+    }
+  });
+</script>
+
+
+
+<script>
+  // Ambil semua input yang ada
+  const inputs = document.querySelectorAll('input.form-control');
+
+  inputs.forEach((input, index) => {
+    input.addEventListener("keydown", function(event) {
+      if (event.key === "Enter") {
+        event.preventDefault(); // cegah submit form
+        // Jika bukan input terakhir, pindah ke input berikutnya
+        if (index < inputs.length - 1) {
+          inputs[index + 1].focus();
+        }
+      }
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+</body>
+</html>
