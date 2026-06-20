@@ -7,8 +7,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Cinzel:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
@@ -20,20 +22,19 @@
   <nav style="  " class="navbar navbar-expand-lg bg-body-tertiary navbar bg-dark-subtle border-bottom border-body " data-bs-theme="dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="index.html">HOME</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="profile.html">PROFILE OF COMPANY</a>
+            <a class="nav-link active" aria-current="page" href="profile.html">PROFILE==============</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="product.html"> THE PRODUCT</a>
+            <a class="nav-link active" href="product.html"> PRODUCT=============</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="contact.html">CONTACT PERSON</a>
+            <a class="nav-link active" href="contact.html">CONTACT=============</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" aria-disabled="true">Disabled</a>
@@ -46,33 +47,189 @@
 <!-- navbar-end -->
 
 
+<div class="fs-5 fw-semibold" style="margin-left: 10px; color: rgb(0, 0, 0);">
+
+<p id="clock"></p>
+
+  <script>
+    function tampilkanJam() {
+      let sekarang = new Date();
+      document.getElementById("clock").innerHTML = sekarang.toLocaleTimeString();
+    }
+    setInterval(tampilkanJam, 1000); // update setiap detik
+  </script>
+
+</div>
 <p style="opacity: -1;" class="fs-6">hys</p>
 
 
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f2f5;
+      padding: 0;
+    }
 
-<div>
-  <p class="btn btn-success mt-4 fw-bold figure position-absolute top-5 start-50 translate-middle fs-1 ">AL-SAID</p>
- 
- 
-  <p style="opacity: -1;" class="fs-1">hys</p>
+    /* Kata trigger */
+    #triggerWord {
+      font-size: 2em;
+      font-weight: bold;
+      cursor: pointer;
+      margin-bottom: 20px;
+      color: #333;
+      display: inline-block;
+    }
 
+    /* Gambar target */
+    #targetImage {
+      width: 300px;
+      border-radius: 12px;
+      transition: transform 0.3s ease;
+    }
 
+    /* Animasi Zoom */
+    .zoom {
+      animation: zoom 2s ease-in-out forwards;
+    }
+    @keyframes zoom {
+      0%   { transform: scale(1); }
+      50%  { transform: scale(1.2); }
+      100% { transform: scale(1); }
+    }
+
+    /* Animasi Rotate ke kanan */
+    .rotate-right {
+      animation: rotateRight 2s ease-in-out forwards;
+    }
+    @keyframes rotateRight {
+      0%   { transform: rotate(0deg); }
+      50%  { transform: rotate(15deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* Animasi Rotate ke kiri */
+    .rotate-left {
+      animation: rotateLeft 2s ease-in-out forwards;
+    }
+    @keyframes rotateLeft {
+      0%   { transform: rotate(0deg); }
+      50%  { transform: rotate(-15deg); }
+      100% { transform: rotate(0deg); }
+    }
+
+    /* Animasi Fade */
+    .fade {
+      animation: fadeImg 2s ease-in-out forwards;
+    }
+    @keyframes fadeImg {
+      0%   { opacity: 1; }
+      50%  { opacity: 0.3; }
+      100% { opacity: 1; }
+    }
+  </style>
+
+  <!-- Kata AL-SAID sebagai trigger -->
+   <div class="hero">
+  <p id="triggerWord" onclick="triggerAnim()">AL-SAID</p>
 </div>
 
-<div style="margin-left: -5px;" class="text-center mt-3">
-  <img style="" src="bsr.jpeg" class="rounded" alt="...">
-</div>
+<style>
+  .hero  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+</style>
+  <!-- Kata AL-SAID sebagai trigger -->
 
 
 
 
-<p class="lead fst-italic text-capitalize mt-5 text-center fs-1 fw-semibold text-uppercase ">Strength in Defense, Peace in Purpose
-</p>
+
+
+
+
+
+
+
+  <!-- Gambar target -->
+  <div class="text-center mt-3">
+    <img id="targetImage" src="bsr.jpeg" class="rounded" alt="...">
+  </div>
+
+  <script>
+    function triggerAnim() {
+      const img = document.getElementById("targetImage");
+
+      // Pilih animasi acak untuk gambar
+      const animations = ["zoom", "rotate-right", "rotate-left", "fade"];
+      const chosen = animations[Math.floor(Math.random() * animations.length)];
+
+      img.classList.add(chosen);
+
+      // Hapus class setelah animasi selesai agar bisa dipicu lagi
+      setTimeout(() => {
+        img.classList.remove(chosen);
+      }, 2000);
+    }
+  </script>
+
+
+
+
+<style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #111; /* background gelap agar teks lebih menonjol */
+
+    }
+
+    
+
+    /* Slogan */
+    .slogan {
+  font-family: 'Oswald', serif;
+  font-size: 2.2em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  text-align: center;
+  background: linear-gradient(
+    90deg,
+    #000,   /* hitam pekat */
+    #1a1a1a,/* abu-abu sangat gelap */
+    #333,   /* abu-abu gelap */
+    #666,   /* abu-abu medium */
+    #999,   /* abu-abu terang */
+    #ccc,   /* abu-abu sangat terang */
+    #fff    /* putih */
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: fadeIn 3s ease-in-out forwards;
+}
+
+    @keyframes fadeIn {
+      0%   { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+
+  <!-- Slogan di bawah gambar -->
+  <p class="slogan">Strength in Defense, Peace in Purpose</p>
+
+
+
+
+
+
+
 
 
 
 
 </div>
 </body>
-
 </html>

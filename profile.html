@@ -7,14 +7,14 @@
   <title>Document</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
+  </head>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
   integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
 
 <body class=" bg-white min-vh-100 ">
 
 
-    <div  class="   ">
+    <div  class=" ">
 
 <!-- navbar-start -->
   <nav class="navbar navbar-expand-lg bg-body-tertiary navbar bg-dark-subtle border-bottom border-body" data-bs-theme="dark">
@@ -26,13 +26,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="profile.html">PROFILE OF COMPANY</a>
+          <a class="nav-link active" aria-current="page" href="profile.html">PROFILE </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="product.html">ABOUT THE PRODUCT</a>
+          <a class="nav-link active" href="product.html">PRODUCT==============</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="contact.html">CONTACT PERSON</a>
+          <a class="nav-link active" href="contact.html">CONTACT==============</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
@@ -46,9 +46,48 @@
 </div>
 
 
+  <style>
+    .kata {
+      cursor: pointer;
+      display: inline-block;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    /* Efek animasi ketika diklik */
+    .kata.animasi {
+      transform: scale(1.5) rotate(10deg);
+      color: red;
+    }
+  </style>
+
+
+  <span class="kata">
+  
 <!-- judul -->
-<p style="margin-left: 150px;" class="lead fst-italic text-lowercase text-center mt-2 fs-1 btn btn-dark ">PROFILE</p>
+<p style="margin-left: 150px; color: black;" class="lead fst-italic text-lowercase text-center mt-2 fs-1 fw-bold">PROFILE</p>
 <!-- judul-end -->
+</span>
+
+
+<script>
+    const kata = document.querySelector('.kata');
+
+    kata.addEventListener('click', () => {
+      // Tambahkan class animasi
+      kata.classList.add('animasi');
+
+      // Hapus class animasi setelah 500ms agar bisa diklik lagi
+      setTimeout(() => {
+        kata.classList.remove('animasi');
+      }, 500);
+    });
+  </script>
+
+
+
+
+
+
 
 
    
@@ -56,75 +95,200 @@
 
 
      
-<div class="mt-3 mb-5" style="text-align: center;">
-  <p >Al-Said is a defense company specializing in advanced military equipment, renowned for its cutting-edge technology and unwavering commitment to quality. What sets Al-Said apart is its ability to deliver products that are not only durable and reliable in the field but also designed with operational efficiency and state-of-the-art security systems that meet international standards. With a highly skilled research and development team, the company consistently provides tailored solutions to meet client needs, ranging from modern system integration to responsive after-sales support. This combination of product reliability, service flexibility, and global reputation makes Al-Said a trusted strategic partner for strengthening national defense and security institutions.
-</p>
+<div class="fs-5" style="text-align: center;">
+  <i >Al-Said is a defense company specializing in advanced military equipment, renowned for its cutting-edge technology and unwavering commitment to quality. What sets Al-Said apart is its ability to deliver products that are not only durable and reliable in the field but also designed with operational efficiency and state-of-the-art security systems that meet international standards. With a highly skilled research and development team, the company consistently provides tailored solutions to meet client needs, ranging from modern system integration to responsive after-sales support. This combination of product reliability, service flexibility, and global reputation makes Al-Said a trusted strategic partner for strengthening national defense and security institutions.
+</i>
 </div>
 
+ <p style="opacity: -1;"  class="fs-1">hys</p>
+ <p style="opacity: -1;"  class="fs-1">hys</p>
+ <p style="opacity: -1;"  class="fs-1">hys</p>
+ <p style="opacity: -1;"  class="fs-1">hys</p>
 
-<div class="mt-3 bg-secondary" style="text-align: center;">
 
 
-<b class="fs-1 mt-5" style="margin-left: 70px;">STORY OF AL-SAID</b>
+<div class="" style="font-family: 'Times New Roman', Times, serif;   color: rgb(0, 0, 0);
+  background: radial-gradient(circle, #e0d6c3 60%, #f7f4f4 100%);
+  color: #2C2C2C;">
+
+<div style="overflow:hidden; width:100%; height:60px; position:relative; background:#ffffff;">
+  <b id="judul" style="font-size:40px; color:rgb(1, 1, 1); position:absolute; white-space:nowrap;">
+    STORY OF AL-SAID
+  </b>
+</div>
+
+<script>
+  let judul = document.getElementById("judul");
+  let posisi = window.innerWidth; // mulai dari luar kanan layar
+  let arah = -2; // bergerak ke kiri
+  let keluarKiri = false;
+
+  function marqueeBolakBalik() {
+    posisi += arah;
+
+    // kalau keluar kiri (seluruh teks sudah hilang)
+    if (posisi < -judul.offsetWidth) {
+      arah = 2; // balik ke kanan
+      keluarKiri = true;
+    }
+
+    // kalau keluar kanan (seluruh teks sudah hilang ke kanan)
+    if (keluarKiri && posisi > window.innerWidth) {
+      arah = -2; // balik ke kiri
+      keluarKiri = false;
+    }
+
+    judul.style.transform = `translateX(${posisi}px)`;
+    requestAnimationFrame(marqueeBolakBalik);
+  }
+
+  // set posisi awal di luar kanan layar
+  posisi = window.innerWidth;
+  marqueeBolakBalik();
+</script>
 
 
-  <div>
-  <p class="fs-4 text-bg-secondary" style=""> AL‑SAID was born in Southeast Asia during a time of rapid industrial and geopolitical change. The company began with a clear vision: to become a trusted partner in the trade of heavy defense equipment, specializing in armored vehicles and tanks. From the very beginning, AL‑SAID positioned itself not just as a supplier, but as a company that understood the complex needs of governments, defense ministries, and international organizations.
-The foundation of AL‑SAID was built on three principles: reliability, transparency, and innovation. These values guided the company through its earliest contracts and remain central to its operations today.  </p>
+<p style="opacity: -1;"  class="fs-6">hys</p>
+
+
+
+<P class="fs-1 fw-bold" style=" text-align: center;">AL-SAID</P>
+
+<style>
+  body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.8;
+    padding: 20px;
+    background: #f9f9f9;
+    color: #333;
+  }
+
+  .highlight {
+    color: #b0063f; 
+    background: #edc0d3;
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-weight: bold;
+  }
+
+  .dialog {
+    color: #2196F3; 
+    font-style: italic;
+    background: #e6e9f2;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .emotion {
+    color: #4CAF50; 
+    background: #e8f5e9;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .warning {
+    color: #f1584d; 
+    background: #ffebee;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .good {
+    color: #b30aeb;
+    background: #e3d9e9;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  .black {
+    color: #000000; 
+    background: #ccc7ca;
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+</style>
+
+ 
+  <div id="typingText">
+  <p class="fs-4 " style=" text-align: center;"><span class="highlight">AL‑SAID was born in Southeast Asia during a time of rapid industrial and geopolitical change. The company began with a clear vision: to become a trusted partner in the trade of heavy defense equipment, specializing in armored vehicles and tanks. From the very beginning,AL‑SAID positioned itself not just as a supplier, but as a company that understood the complex needs of governments, defense ministries, and international organizations.
+The foundation of AL‑SAID was built on three principles: reliability, transparency, and innovation. These values guided the company through its earliest contracts and remain central to its operations today.</span> </p>
 </div>
 
 
 <div>
-  <p class="fs-4 text-bg-secondary ">  In its first years , AL‑SAID faced the challenge of entering a highly regulated and competitive industry. Obtaining licenses, building trust with clients, and proving operational capacity required persistence. The company’s breakthrough came when it successfully delivered a fleet of armored vehicles to a regional defense client. This achievement established AL‑SAID’s reputation for professionalism and reliability, opening doors to international markets.
-From that point forward, AL‑SAID expanded steadily, building partnerships across Asia, the Middle East, and eventually Europe and Africa. Its ability to adapt to diverse client requirements became a hallmark of the brand.  </p>
+  <p class="fs-4 " style=" text-align: center;"><span class="emotion">  In its first years , AL‑SAID faced the challenge of entering a highly regulated and competitive industry. Obtaining licenses, building trust with clients, and proving operational capacity required persistence. The company’s breakthrough came when it successfully delivered a fleet of armored vehicles to a regional defense client. This achievement established AL‑SAID’s reputation for professionalism and reliability, opening doors to international markets.
+From that point forward, AL‑SAID expanded steadily, building partnerships across Asia, the Middle East, and eventually Europe and Africa. Its ability to adapt to diverse client requirements became a hallmark of the brand.</span>  </p>
 </div>
 
 
 <div>
-  <p class="fs-4 text-bg-secondary ">   No journey is without obstacles. In the mid‑2000s, AL‑SAID encountered a serious complication when international sanctions disrupted supply chains and delayed shipments. Contracts were put on hold, and questions arose about the company’s future.
+  <p class="fs-4" style=" text-align: center;"><span class="dialog">No journey is without obstacles. In the mid‑2000s, AL‑SAID encountered a serious complication when international sanctions disrupted supply chains and delayed shipments. Contracts were put on hold, and questions arose about the company’s future.
 Rather than retreat, AL‑SAID responded with resilience. The company diversified its services, offering maintenance, training, and logistical support—areas unaffected by restrictions. It also implemented strict compliance measures, inviting independent auditors to review its operations. This transparency reassured clients and restored confidence.
-The crisis became a turning point. AL‑SAID emerged stronger, with a broader portfolio and a reputation for integrity under pressure.  </p>
+The crisis became a turning point. AL‑SAID emerged stronger, with a broader portfolio and a reputation for integrity under pressure.</span>  </p>
 </div>
 
 <div>
-  <p class="fs-4 text-bg-secondary ">   Today, AL‑SAID operates from Southeast Asia but serves a truly global clientele. Its clients include governments, defense contractors, and international organizations seeking reliable access to heavy defense equipment. The company’s reach extends across continents, supported by a network of logistics partners and technical experts.
-AL‑SAID’s facilities include modern warehouses, testing grounds, and training centers. These resources allow the company not only to deliver equipment but also to ensure that clients receive full operational support.  </p>
+  <p class="fs-4" style=" text-align: center;"><spam class="warning">   today, AL‑SAID operates from Southeast Asia but serves a truly global clientele. Its clients include governments, defense contractors, and international organizations seeking reliable access to heavy defense equipment. The company’s reach extends across continents, supported by a network of logistics partners and technical experts.
+AL‑SAID’s facilities include modern warehouses, testing grounds, and training centers. These resources allow the company not only to deliver equipment but also to ensure that clients receive full operational support.</spam>  </p>
 </div>
 
 
 
  <div>
-  <p class="fs-4 text-bg-secondary ">  AL‑SAID continues to evolve with the defense industry. While armored vehicles and tanks remain its core business, the company is exploring new technologies such as advanced mobility systems and integrated defense solutions. Its long‑term vision is to remain at the forefront of innovation while maintaining the trust and reliability that clients have come to expect.
-The company’s philosophy is simple: to provide clients with dependable solutions that strengthen security and defense capabilities worldwide. </p>
+  <p class="fs-4 " style=" text-align: center;"><span class="good">  AL‑SAID continues to evolve with the defense industry. While armored vehicles and tanks remain its core business, the company is exploring new technologies such as advanced mobility systems and integrated defense solutions. Its long‑term vision is to remain at the forefront of innovation while maintaining the trust and reliability that clients have come to expect.
+The company’s philosophy is simple: to provide clients with dependable solutions that strengthen security and defense capabilities worldwide.</span> </p>
 </div>
 
 <div>
-  <p class="fs-4 text-bg-secondary "> The story of AL‑SAID is one of ambition, challenge, and resilience. From its modest beginnings in Southeast Asia to its current role as an international supplier, the company has proven that dedication and integrity can overcome even the most complex obstacles.
-For clients, AL‑SAID offers more than equipment—it offers partnership, expertise, and a commitment to excellence.  </p>
+  <p class="fs-4" style=" text-align: center;"><span class="black"> The story of AL‑SAID is one of ambition, challenge, and resilience. From its modest beginnings in Southeast Asia to its current role as an international supplier, the company has proven that dedication and integrity can overcome even the most complex obstacles.
+For clients, AL‑SAID offers more than equipment—it offers partnership, expertise, and a commitment to excellence.</span>  </p>
 </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 </div>
 
 
+<p style="opacity: -1;"  class="fs-1">hys</p>
+<p style="opacity: -1;"  class="fs-1">hys</p>
+<p style="opacity: -1;"  class="fs-1">hys</p>
+ <p style="opacity: -1;"  class="fs-1">hys</p>
+ 
+
+
+
+<p class="fw-bold fs-1 rainbow-text" style="text-align: center;">END</p>
+
+<style>
+  .rainbow-text {
+    animation: rainbow 5s infinite alternate;
+  }
+
+  @keyframes rainbow {
+    0%   { color: red; }
+    20%  { color: orange; }
+    40%  { color: yellow; }
+    60%  { color: green; }
+    80%  { color: blue; }
+    100% { color: purple; }
+  }
+</style>
 
 
 
 
-<b class="">This company also provides all types of vehicles from various terrains, namely:</b>
+
+
+<p style="opacity: -1;"  class="fs-1">hys</p>
+ <p style="opacity: -1;"  class="fs-1">hys</p>
+ <p style="opacity: -1;"  class="fs-1">hys</p>
+ <p style="opacity: -1;"  class="fs-1">hys</p>
+<p style="opacity: -1;"  class="fs-1">hys</p>
+ <p style="opacity: -1;"  class="fs-1">hys</p>
+ <p style="opacity: -1;"  class="fs-1">hys</p>
+ <p style="opacity: -1;"  class="fs-1">hys</p>
+
+<b class="fs-5">This company also provides all types of vehicles from various terrains, namely:</b>
 
 
    
@@ -320,15 +484,109 @@ For clients, AL‑SAID offers more than equipment—it offers partnership, exper
 </div>
 
 <P class="fs-6" style="opacity: -1;">HYS</P>
+<p style="opacity: -1;"  class="fs-1">hys</p>
+<p style="opacity: -1;"  class="fs-1">hys</p>
+<p style="opacity: -1;"  class="fs-1">hys</p>
+ <p style="opacity: -1;"  class="fs-1">hys</p>
 
-<b class="fs-6 text-bg-secondary " style="margin-left:27px; padding: 10px;">"STRENGTH IN DEFENSE, PEACE IN PURPOSE"</b>
+
+
+
+
+<b class="slogan-elegant">"STRENGTH IN DEFENSE, PEACE IN PURPOSE"</b>
+
+<style>
+  .slogan-elegant {
+    display: inline-block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-align: center;
+    color: #2C2C2C; /* warna dasar abu gelap */
+    animation: fadeSlide 6s ease-in-out infinite alternate,
+               glowEffect 8s ease-in-out infinite alternate;
+  }
+
+  @keyframes fadeSlide {
+    0%   { opacity: 0.4; transform: translateY(-8px); }
+    50%  { opacity: 1;   transform: translateY(0); }
+    100% { opacity: 0.4; transform: translateY(8px); }
+  }
+
+  @keyframes glowEffect {
+    0%   { text-shadow: 0 0 2px #aaa; }
+    50%  { text-shadow: 0 0 12px #ddd; }
+    100% { text-shadow: 0 0 2px #aaa; }
+  }
+</style>
+
+
+
+
+
+
+
+
+
+
+
 
 <P class="fs-3" style="opacity: -1;">HYS</P>
-<b  style="margin-left: 80px;"  class="fs-1">AND THANKYOU </b>
 
-<div>
-<b style="margin-left: 190px;"  class="fs-1">:)</b>
-</div>
+
+
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f0f2f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    .running-container {
+      width: 100%;
+      overflow: hidden;
+      background: #0f0e0e;
+      padding: 12px 0;
+    }
+
+    .running-text {
+      display: inline-block;
+      white-space: nowrap;
+      font-size: 1.6em;
+      font-weight: bold;
+      background: linear-gradient(to right, #cccccc, #ffffff, #cccccc);
+      background-size: 200% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: runText 15s linear infinite, colorShift 6s ease-in-out infinite alternate;
+      text-shadow: 0 0 6px rgba(255,255,255,0.2);
+      letter-spacing: 2px;
+    }
+
+    @keyframes runText {
+      0%   { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @keyframes colorShift {
+      0%   { background-position: 0% center; }
+      100% { background-position: 100% center; }
+    }
+  </style>
+
+  <div class="running-container">
+    <div class="running-text">THANKYOU :)</div>
+  </div>
+
+
+
+
+
+
+
+
+
 
 
 
@@ -336,38 +594,64 @@ For clients, AL‑SAID offers more than equipment—it offers partnership, exper
 
 
 
+
+
 <div class="sticky-bottom">
-
-<button id="scrollTopBtn" style="margin-left: 360px; margin-bottom: 15px; padding: 1%;">⬆</button>
-<script>
-    const scrollTopBtn = document.getElementById("scrollTopBtn");
-    let scrollTimeout;
-
-    window.addEventListener("scroll", () => {
-      // tampilkan tombol saat user sedang scroll
-      scrollTopBtn.style.display = "block";
-
-      // reset timeout setiap kali scroll terjadi
-      clearTimeout(scrollTimeout);
-      scrollTimeout = setTimeout(() => {
-        // sembunyikan tombol jika scroll berhenti
-        scrollTopBtn.style.display = "none";
-      }, 2000); // jeda 0.5 detik setelah berhenti scroll
-    });
-
-    // klik tombol untuk scroll ke atas
-    scrollTopBtn.onclick = () => {
-      window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-      });
-    };
-  </script>
-
-
+  <button id="scrollTopBtn" class="scroll-btn">⬆</button>
 </div>
 
+<script>
+  const scrollTopBtn = document.getElementById("scrollTopBtn");
+  let scrollTimeout;
 
+  window.addEventListener("scroll", () => {
+    // tampilkan dengan animasi fade in
+    scrollTopBtn.classList.add("show");
+
+    clearTimeout(scrollTimeout);
+    scrollTimeout = setTimeout(() => {
+      // sembunyikan dengan animasi fade out
+      scrollTopBtn.classList.remove("show");
+    }, 2000);
+  });
+
+  scrollTopBtn.onclick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  };
+</script>
+
+<style>
+  .scroll-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background: rgb(187, 186, 186);
+    color: rgb(0, 0, 0);
+    font-size: 24px;
+    cursor: pointer;
+    opacity: 0;              /* default tersembunyi */
+    pointer-events: none;    /* tidak bisa diklik saat hidden */
+    transition: opacity 0.5s ease; /* animasi smooth */
+  }
+
+  .scroll-btn.show {
+    opacity: 1;
+    pointer-events: auto;    /* aktif saat terlihat */
+  }
+
+  .scroll-btn:hover {
+    background: #ffffff;
+    transform: scale(1.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+  }
+</style>
 
 
 

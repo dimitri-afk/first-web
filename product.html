@@ -25,13 +25,13 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="profile.html">PROFILE OF COMPANY</a>
+          <a class="nav-link active" aria-current="page" href="profile.html">PROFILE==============</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="product.html">ABOUT THE PRODUCT</a>
+          <a class="nav-link active" href="product.html">PRODUCT</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="contact.html">CONTACT PERSON</a>
+          <a class="nav-link active" href="contact.html">CONTACT=============</a>
         </li>
         <li class="nav-item">
           <a class="nav-link disabled" aria-disabled="true">Disabled</a>
@@ -41,7 +41,41 @@
   </div>
 </nav>
 
-<p style="margin-left: 150px;" class="lead fst-italic text-lowercase text-center mt-2 fs-1 btn btn-dark">PRODUCT</p>
+  <style>
+    .kata {
+      cursor: pointer;
+      display: inline-block;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    /* Efek animasi ketika diklik */
+    .kata.animasi {
+      transform: scale(1.5) rotate(10deg);
+      color: red;
+    }
+  </style>
+
+ 
+<span class="kata">
+
+<!-- judul-->
+<p style="margin-left: 157px; color: black;" class="lead fst-italic text-lowercase text-center mt-2 fs-1 fw-bold">PRODUCT</p>
+<!-- judul-->
+</span>
+
+  <script>
+    const kata = document.querySelector('.kata');
+
+    kata.addEventListener('click', () => {
+      // Tambahkan class animasi
+      kata.classList.add('animasi');
+
+      // Hapus class animasi setelah 500ms agar bisa diklik lagi
+      setTimeout(() => {
+        kata.classList.remove('animasi');
+      }, 500);
+    });
+  </script>
 
 <p style="opacity: -1;" class="fs-6">hys</p>
 
@@ -52,14 +86,19 @@
 
 <p style="opacity: -1;" class="fs-6">hys</p>
 
-<a style=" padding-left: 154px; padding-right: 180px; " class="btn btn-primary fs-3 " href="russia.html">RUSSIA</a>
+<a style=" padding-left: 175px; padding-right: 157px; " class="btn btn-danger fs-3 " href="russia.html">RUSSIA</a>
  
 <p style="opacity: -1;" class="fs-6">hys</p>
 
-<a style=" padding-left: 121px; padding-right: 180px;" class="btn btn-primary fs-3" href="germany.html">GERMANY</a>
+<a  style=" padding-left: 160px; padding-right: 142px;" class="btn btn-secondary fs-3" href="germany.html">GERMANY</a>
 
 
 </div>
+
+  
+
+
+
 
 </body>
 </html>
